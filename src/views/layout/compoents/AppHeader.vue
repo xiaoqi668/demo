@@ -1,13 +1,9 @@
 <template>
   <div class="app-header">
     <!-- 左侧面包屑导航功能 -->
-    <el-breadcrumb separator="/">
+    <el-breadcrumb separator-class="el-icon-arrow-right">
       <el-breadcrumb-item :to="{ path: '/' }">首页</el-breadcrumb-item>
-      <el-breadcrumb-item>
-        <a href="/">活动管理</a>
-      </el-breadcrumb-item>
-      <el-breadcrumb-item>活动列表</el-breadcrumb-item>
-      <el-breadcrumb-item>活动详情</el-breadcrumb-item>
+      <el-breadcrumb-item>活动管理</el-breadcrumb-item>
     </el-breadcrumb>
     <!-- 用户信息展示功能 -->
     <el-dropdown>
@@ -29,25 +25,25 @@
 
 <script>
 // 引入用户信息接口功能
-import { getUserInfo } from '@/services/user'
+import { getUserInfo } from "@/services/user";
 export default {
-  name: 'AppHeader',
-  created () {
+  name: "AppHeader",
+  created() {
     // 加载用户信息，最好不要在生命周期钩子中直接使用逻辑,避免过多逻辑，增加可维护性
-    this.loadUserInfo()
-    this.loadUserInfo()
+    this.loadUserInfo();
+    this.loadUserInfo();
   },
-  data () {
+  data() {
     return {
       // 用户信息
       userInfo: {}
-    }
+    };
   },
   methods: {
     // 加载用户信息功能
-    async loadUserInfo () {
-      const { data } = await getUserInfo()
-      this.userInfo = data.content
+    async loadUserInfo() {
+      const { data } = await getUserInfo();
+      this.userInfo = data.content;
     },
     // loadUserInfo() {
     //   getUserInfo().then(data => {
@@ -55,31 +51,31 @@ export default {
     //   })
     // }
     // 退出功能
-    handleLogout () {
-      this.$confirm('确认退出吗？', '退出提示', {
-        confirmButtonText: '确定',
-        cancelButtonText: '取消',
-        type: 'warning'
+    handleLogout() {
+      this.$confirm("确认退出吗？", "退出提示", {
+        confirmButtonText: "确定",
+        cancelButtonText: "取消",
+        type: "warning"
       })
         .then(() => {
           // 1.清除store中的用户信息
-          this.$store.commit('setUser', null)
+          this.$store.commit("setUser", null);
           // 2.跳转login页面
-          this.$router.push('/login')
+          this.$router.push("/login");
           this.$message({
-            type: 'success',
-            message: '退出成功!'
-          })
+            type: "success",
+            message: "退出成功!"
+          });
         })
         .catch(() => {
           this.$message({
-            type: 'info',
-            message: '已取消退出'
-          })
-        })
+            type: "info",
+            message: "已取消退出"
+          });
+        });
     }
   }
-}
+};
 </script>
 
 <style lang="scss" scoped>
