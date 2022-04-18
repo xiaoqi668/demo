@@ -17,17 +17,17 @@
       <el-form label-width="80px">
         <!-- 基本信息 -->
         <div v-show="activeStep === 0">
-          <el-form-item label="课程名称">
+          <el-form-item label="视频名称">
             <el-input
               v-model="course.courseName"
             ></el-input>
           </el-form-item>
-          <el-form-item label="课程简介">
+          <el-form-item label="视频简介">
             <el-input
               v-model="course.brief"
             ></el-input>
           </el-form-item>
-          <el-form-item label="课程概述">
+          <el-form-item label="视频概述">
             <el-input
               v-model="course.previewFirstField"
               placeholder="概述1"
@@ -41,20 +41,20 @@
               style="width: 49%;min-width: 300px;"
             ></el-input>
           </el-form-item>
-          <el-form-item label="讲师姓名">
+          <el-form-item label="作者姓名">
             <el-input
               v-model="course.teacherDTO.teacherName"
             ></el-input>
           </el-form-item>
-          <el-form-item label="讲师简介">
+          <el-form-item label="作者简介">
             <el-input
               v-model="course.teacherDTO.description"
             ></el-input>
           </el-form-item>
-          <el-form-item label="课程排序">
+          <el-form-item label="视频排序">
             <el-input-number
               v-model="course.sortNum"
-              label="描述文字"
+              label="视频描述"
               controls-position="right"
             ></el-input-number>
           </el-form-item>
@@ -64,7 +64,7 @@
           <!-- 封装为图片上传组件 -->
           <course-image
             v-model="course.courseListImg"
-            label="课程封面"
+            label="视频封面"
             :limit="3"
           ></course-image>
           <course-image
@@ -154,7 +154,7 @@
         </div>
         <!-- 课程详情 -->
         <div v-show="activeStep === 4">
-          <el-form-item label="课程详情">
+          <el-form-item label="视频详情">
             <text-editor v-model="course.courseDescriptionMarkDown"></text-editor>
           </el-form-item>
           <el-form-item label="是否上架">

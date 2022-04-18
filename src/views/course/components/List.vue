@@ -11,7 +11,7 @@
         label-position="left"
         :model="filterParams"
       >
-        <el-form-item label="课程名称：" prop="courseName">
+        <el-form-item label="视频名称：" prop="courseName">
           <el-input v-model="filterParams.courseName"></el-input>
         </el-form-item>
         <el-form-item label="状态：" prop="status">
@@ -43,7 +43,7 @@
           @click="$router.push({
             name: 'course-create'
           })"
-        >添加课程</el-button>
+        >添加视频</el-button>
       </div>
       <!-- 课程展示区域 -->
       <el-table
@@ -58,7 +58,7 @@
         </el-table-column>
         <el-table-column
           prop="courseName"
-          label="课程名称"
+          label="视频名称"
           width="230">
         </el-table-column>
         <el-table-column
